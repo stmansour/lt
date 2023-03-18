@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gotta Be Tonight - GRAY Music Factory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <script src="play.js"></script>
+</head>
+
+<body>
+    <!------------------------------------------------------
+      --                    IMAGES
+      ------------------------------------------------------>
+    <div class="art-container">
+        <div class="backdrop-blur" style="background-image: url('gbt-640.png');"></div>
+        <div class="sharp-bottom-edge"></div>
+        <div class="fg-img-container">
+            <img id="songArt" class="foreground-img" src="gbt-640.png" alt="Foreground Image">
+        </div>
+    </div>
+
+    <!------------------------------------------------------
+      --                    MP3 PLAYER
+      ------------------------------------------------------>
+    <div class="player-container">
+        <table id="linkTree" align="center">
+            <tr>
+                <td width="50" height="50">
+                    <button id="play-pause-btn" onclick="playHandler()" >
+                        <img id="playPauseImg" src="../images/play.png" width="50" height="50">
+                    </button>
+                </td>
+                <td width="300" height="50">
+                    <div id="progressBar">
+                        <div id="progressBarBg"></div>
+                        <div id="progressBarFg"></div>
+                    </div>
+                </td>
+                <td>
+                    <div><span id="duration">00:00</span></div>
+                </td>
+                <td>
+                    <div id="fbutton-container">
+                        <div id="follow-btn" class="fbutton" style="cursor: pointer;"><img src="../images/follow.png" alt="">&nbsp;&nbsp;FOLLOW</div>
+                        <div id="share-btn" class="fbutton" onclick="showPopup(event)" style="cursor: pointer;">
+                            <div class="popup"><img src="../images/share.png" alt="">&nbsp;&nbsp;SHARE
+                                <span class="popuptext" id="smPopup">
+                                    <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border-spacing: 0; padding: 0;">
+                                        <tr>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('email')"><img src="../images/pu-email.png" alt="email"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('facebook')"><img src="../images/pu-facebook.png" alt="facebook"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('pintrest')"><img src="../images/pu-pintrest.png" alt="pintrest"></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('reddit')"><img src="../images/pu-reddit.png" alt="reddit"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('tumblr')"><img src="../images/pu-tumblr.png" alt="tumblr"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('twitter')"><img src="../images/pu-twitter.png" alt="twitter"></button></td>
+                                        </tr>
+                                    </table>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!------------------------------------------------------
+      --                    LINK TREE
+      ------------------------------------------------------>
+    <div class="content-container">
+        <table align="center">
+            <!--  TITLE -->
+            <tr>
+                <td>
+                    <span class="songtitle">Gotta Be Tonight</span><br>
+                    <span class="songby"><i>by <a href="https://graymusicfactory.com" target="_blank"
+                                rel="noopener noreferrer">GRAY Music Factory</a></i></span><br>
+                    <br>
+                    Get the music:<br>
+                </td>
+            </tr>
+            <tr>
+                <td height="5" width="400"></td>
+            </tr>
+
+            <!--  LINKS TO MUSIC -->
+            <tr>
+                <td align="center" width="400">
+                    <div class="flexcontainer">
+                        <button class="rbutton" onclick="rbuttonClick('iTunes')"><img src="../images/iTunes.png" class="mr"> iTunes</button>
+                        <button class="rbutton" onclick="rbuttonClick('Spotify')"><img src="../images/Spotify.png" class="mr"> Spotify</button>
+                        <button class="rbutton" onclick="rbuttonClick('AppleMusic')"><img src="../images/AppleMusic.png" class="mr"> Apple Music</button>
+                        <button class="rbutton" onclick="rbuttonClick('AmazonMusic')"><img src="../images/AmazonMusic.png" class="mr"> Amazon</button>
+                        <button class="rbutton" onclick="rbuttonClick('Pandora')"><img src="../images/Pandora.png" class="mr"> Pandora</button>
+                        <button class="rbutton" onclick="rbuttonClick('YouTube')"><img src="../images/YouTube.png" class="mr"> YouTube</button>
+                        <button class="rbutton" onclick="rbuttonClick('Deezer')"><img src="../images/Deezer.png" class="mr"> Deezer</button>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="flexcontainer">
+                        <button class="button" onclick="rbuttonClick('BuyFromArtist')"><img src="../images/BuyFromArtist.png" alt="" class="mr"> Buy From
+                            Artist</button>
+                    </div>
+                    <br>
+                    <div class="flexcontainer">
+                        <a href="https://youtube.com/@graymusicfactory" target="_blank" rel="noopener noreferrer"><img
+                                src="../images/YouTube-36.png" alt=""></a>
+                        <a href="https://www.facebook.com/profile.php?id=100063776965796" target="_blank"
+                            rel="noopener noreferrer"><img src="../images/Facebook-36.png" alt=""></a>
+                        <a href="https://www.instagram.com/smanthegray/" target="_blank" rel="noopener noreferrer"><img
+                                src="../images/Instagram-36.png" alt=""></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+</body>

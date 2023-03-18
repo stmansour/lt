@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:ital@0;1&family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE;
+    font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.3em;
+    color: #222222;
+}
+
+a,
+a:visited {
+    color: #222222;
+}
+
+td,
+th {
+    text-align: center;
+}
+
+.songtitle {
+    font-size: 2.3em;
+}
+
+.songby {
+    font-size: 1.3em;
+}
+
+/*
+**  THE POPUP
+*/
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    /* width: 160px; */
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    /* padding: 8px 0; */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -180px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+}
+
+#fbutton-container {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 350px;
+    /* right: calc(50% - 275px); */
+    left: calc(50% + 210px);
+    margin-bottom: 25px;
+    z-index: 1;
+}
+
+#fbutton-container button {
+    align-self: flex-start;
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+#play-pause-btn {
+    cursor: pointer;
+}
+
+/*
+**  SPECIAL BUTTONS
+*/
+.button {
+    border: 1px solid #444444;
+    background-color: #EEEEEE;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.3em;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.rbutton {
+    border: 1px solid #444444;
+    background-color: #EEEEEE;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.1em;
+    min-width: 150px;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:focus,
+.rbutton:hover,
+.rbutton:focus {
+    background-color: #222222;
+    color: #EEEEEE;
+}
+
+button:hover img {
+    filter: invert(1);
+}
+
+.fbutton {
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+    cursor: pointer;
+    font-size: 0.75em;
+    border-radius: 7px;
+}
+
+#follow-btn {
+    margin-bottom: 10px;
+}
+
+.art-container {
+    position: relative;
+    height: 450px;
+    z-index: -2;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tbutton {
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    cursor: pointer;
+    font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.3em;
+    border-radius: 7px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.tbutton:hover {
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+.mr {
+    margin-right: 10px;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.fg-img-container {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
+
+.foreground-img {
+    display: block;
+    margin: 0 auto;
+}
+
+.backdrop-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    z-index: -3;
+    filter: blur(8px);
+}
+
+.sharp-bottom-edge {
+    position: absolute;
+    top: 450px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #EEEEEE;
+    z-index: -1;
+}
+
+@media (max-width: 600px) {
+    .foreground-img {
+        width: 100%;
+        height: calc(100vw - 20px);
+        margin-top: 0;
+    }
+
+    .fg-img-container {
+        position: relative;
+        height: calc(100vw - 20px);
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .art-container {
+        height: calc(100vw)
+    }
+
+    .sharp-bottom-edge {
+        top: calc(100vw - 22px);
+    }
+
+    #fbutton-container {
+        left: calc(100% - 100px);
+        top: calc(100vw - 100px);
+    }
+}
+
+@media (min-width: 601px) {
+    .foreground-img {
+        width: 400px;
+        height: 400px;
+        margin-top: 25px;
+    }
+
+}
