@@ -1,5 +1,10 @@
 var smApp = {
     audioUrl: 'Gotta Be Tonight - Promo1 - 44_1.mp3',
+    thisURL: `http://stevemansour.com/lt/0001/play.html`,
+    thisImg: 'http://stevemansour.com/lt/0001/gbt-640.png',
+    thisTitle: "Check out GRAY's new single!",
+    thisKeywords: "GRAY Music Factory, new single, music",
+    thisDescription: "Listen to GRAY Music Factory's latest single now!",
     audioPlayer: null,
     songLoaded: false,
     canPlay: false,
@@ -11,10 +16,6 @@ var smApp = {
     progressBar: null,
     btnImg: null,
     popup: null,
-    thisURL: `http://stevemansour.com/lt/0001/play.html`,
-    thisImg: 'http://stevemansour.com/lt/0001/gbt-640.png',
-    thisTitle: "Check out GRAY's new single!",
-    thisKeywords: "GRAY Music Factory, new single, music",
 };
 
 linkTree = {
@@ -97,6 +98,37 @@ function showPopup() {
     popup.classList.toggle("show");
 }
 
+function capitalizeWords(words) {
+    var capitalizedWords = [];
+    for (let i = 0; i < words.length; i++) {
+        var wordArray = words[i].split(" ");
+        let capitalizedWord = "";
+        for (let j = 0; j < wordArray.length; j++) {
+            capitalizedWord += wordArray[j].charAt(0).toUpperCase() + wordArray[j].slice(1);
+        }
+        capitalizedWords.push(capitalizedWord);
+    }
+    return capitalizedWords;
+}
+
+
+function getKeywords(platform) {
+    var keywords = smApp.thisKeywords.split(/,+/).map((word) => word.trim());
+    keywords = capitalizeWords(keywords);
+    switch (platform) {
+        case 'twitter':
+            return keywords.map((word) => word.replace(/\s+/g, '')).join('');
+        case 'tumblr':
+            return keywords.map((word) => word.toLowerCase()).join(',');
+        case 'facebook':
+            return keywords.join(',');
+        case 'pinterest':
+            return keywords.join(',');
+        default:
+            return '';
+    }
+}
+
 function smButtonHandler(p) {
     var s1;
     var s2;
@@ -106,17 +138,14 @@ function smButtonHandler(p) {
             s1 = encodeURIComponent(`Have you heard GRAY's new single -- Gotta Be Tonight`);
             s2 = encodeURIComponent(`Give it a listen, or watch the video.  `);
             s3 = `mailto:?subject=` + s1 + `&body=` + s2 + smApp.thisURL
-            window.open(`mailto:?subject=` + s1 + `&body=` + s2 + smApp.thisURL, '_blank');
             break;
         case "facebook":
-            s2 = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(smApp.thisURL);
-            window.open(s2, '_blank');
+            s1 = getKeywords('facebook');
+            s3 = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(smApp.thisURL)}&title=${encodeURIComponent(smApp.thisTitle)}&description=${encodeURIComponent(smApp.thisDescription)}&quote=${encodeURIComponent(smApp.thisDescription)}&hashtag=${encodeURIComponent(s1)}`;
             break;
         case "pintrest":
-            s1 = encodeURIComponent("Gotta Be Tonight");
-            s2 = encodeURIComponent(smApp.thisImg);
-            s3 = 'https://www.pinterest.com/pin/create/button/?description=' + s1 + '&media=' + s2 + '&url=' + smApp.thisURL;
-            window.open(s3, '_blank');
+            s2 = getKeywords('pinterest');
+            s3 = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(smApp.thisURL)}&media=${encodeURIComponent(smApp.thisImgURL)}&description=${encodeURIComponent(smApp.thisDescription)}&hashtags=${encodeURIComponent(s2)}`;
             break;
         case "reddit":
             // full URL for reddit
@@ -130,48 +159,52 @@ function smButtonHandler(p) {
                 '%26title%3D' + encodeURIComponent("Gotta Be Tonight by GRAY");
             //    https://www.reddit.com/login/?dest=
             s3 = "https://www.reddit.com/login/?dest=" + s1;
-            window.open(s3, "_blank");
             break;
         case "tumblr":
-            s3 = "https://www.tumblr.com/widgets/share/tool" +
-                "?posttype=link" +
-                `&title=${encodeURIComponent(smApp.thisTitle)}` +
-                `&caption=${encodeURIComponent("Listen to GRAY's new single and check out the artwork!")}` +
-                `&content=${encodeURIComponent(smApp.thisImg)}` +
-                `&canonicalUrl=${encodeURIComponent(smApp.thisURL)}` +
-                `&tags=${encodeURIComponent(getKeywords(smApp.thisKeywords, 'tumblr'))}`;
-            // console.log(s3);
-            window.open(s3, "_blank");
+            s2 = getKeywords('tumblr');
+            s3 = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${encodeURIComponent(smApp.thisURL)}&posttype=link&title=${encodeURIComponent(smApp.thisTitle)}&caption=${encodeURIComponent(smApp.thisDescription)}&tags=${encodeURIComponent(s2)}`;
             break;
         case "twitter":
-            s3 = "https://twitter.com/intent/tweet" +
-                `?text=${encodeURIComponent(smApp.thisTitle)}` +
-                `&url=${encodeURIComponent(smApp.thisURL)}` +
-                `&hashtags=${encodeURIComponent(getKeywords(smApp.thisKeywords, 'twitter'))}`;
-            console.log(s3);
-            window.open(s3, '_blank');
+            s2 = getKeywords('twitter');
+            s3 = `https://twitter.com/intent/tweet?text=${encodeURIComponent(smApp.thisTitle)}&url=${encodeURIComponent(smApp.thisURL)}&hashtags=${encodeURIComponent(s2)}`;
             break;
         default:
-            break;
+            console.log("unrecognized social media platform = " + p);
+            return;
     }
+    window.open(s3, '_blank');
 }
 
+function capitalizeWords(words) {
+    var capitalizedWords = [];
+    for (let i = 0; i < words.length; i++) {
+        var wordArray = words[i].split(" ");
+        let capitalizedWord = "";
+        for (let j = 0; j < wordArray.length; j++) {
+            capitalizedWord += wordArray[j].charAt(0).toUpperCase() + wordArray[j].slice(1);
+        }
+        capitalizedWords.push(capitalizedWord);
+    }
+    return capitalizedWords;
+}
 // getKeywords - convert our generic keywords into something reasonable for the supplied
 //               platform that takes into account that platforms conventions and restrictions.
 //-----------------------------------------------------------------------------------------------
-function getKeywords(keywords, platform) {
-    const words = keywords.split(/\s*,\s*/);
-    let processedKeywords;
-
-    if (platform === 'twitter') {
-        processedKeywords = words.map(word => word.replace(/\s+/g, '')).join('');
-    } else if (platform === 'tumblr') {
-        processedKeywords = words.map(word => word.toLowerCase().replace(/\s+/g, '')).join(',');
-    } else {
-        throw new Error('Unsupported platform');
+function getKeywords(platform) {
+    var keywords = smApp.thisKeywords.split(/,+/).map((word) => word.trim());
+    keywords = capitalizeWords(keywords);
+    switch (platform) {
+        case 'twitter':
+            return keywords.map((word) => word.replace(/\s+/g, '')).join('');
+        case 'tumblr':
+            return keywords.map((word) => word.toLowerCase()).join(',');
+        case 'facebook':
+        case 'reddit':
+        case 'pinterest':
+            return keywords.join(',');
+        default:
+            return '';
     }
-
-    return processedKeywords;
 }
 
 function rbuttonClick(rbtn) {
