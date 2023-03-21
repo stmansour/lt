@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
     <script src="play.js"></script>
+
+    <meta property="og:title" content="Gotta Be Tonight - GRAY Music Factory">
+    <meta property="og:description" content="Check out GRAY's new single!">
+    <meta property="og:image" content="https://stevemansour.com/lt/gotta-be-tonight/gotta-be-tonight-FB.png">
+    <meta property="og:url" content="https://stevemansour.com/lt/gotta-be-tonight">
+    <meta property="og:type" content="music:song">
 </head>
 
 <body>
@@ -14,12 +20,14 @@
       --                    IMAGES
       ------------------------------------------------------>
     <div class="art-container">
-        <div class="backdrop-blur" style="background-image: url('gbt-640.png');"></div>
+        <div class="backdrop-blur" style="background-image: url('gotta-be-tonight.png');"></div>
         <div class="sharp-bottom-edge"></div>
         <div class="fg-img-container">
-            <img id="songArt" class="foreground-img" src="gbt-640.png" alt="Foreground Image">
+            <img id="songArt" class="foreground-img" src="gotta-be-tonight.png" alt="Album Art"
+                data-image="https://stevemansour.com/lt/gotta-be-tonight/gotta-be-tonight.png">
         </div>
     </div>
+
 
     <!------------------------------------------------------
       --                    MP3 PLAYER
@@ -28,7 +36,7 @@
         <table id="linkTree" align="center">
             <tr>
                 <td width="50" height="50">
-                    <button id="play-pause-btn" onclick="playHandler()" >
+                    <button id="play-pause-btn" onclick="playHandler()">
                         <img id="playPauseImg" src="../images/play.png" width="50" height="50">
                     </button>
                 </td>
@@ -43,20 +51,28 @@
                 </td>
                 <td>
                     <div id="fbutton-container">
-                        <div id="follow-btn" class="fbutton" style="cursor: pointer;"><img src="../images/follow.png" alt="">&nbsp;&nbsp;FOLLOW</div>
+                        <div id="follow-btn" class="fbutton" style="cursor: pointer;"><img src="../images/follow.png"
+                                alt="">&nbsp;&nbsp;FOLLOW</div>
                         <div id="share-btn" class="fbutton" onclick="showPopup(event)" style="cursor: pointer;">
                             <div class="popup"><img src="../images/share.png" alt="">&nbsp;&nbsp;SHARE
                                 <span class="popuptext" id="smPopup">
-                                    <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border-spacing: 0; padding: 0;">
+                                    <table border="0" cellspacing="0" cellpadding="0"
+                                        style="border-collapse: collapse; border-spacing: 0; padding: 0;">
                                         <tr>
-                                            <td><button style="padding:0;" onclick="smButtonHandler('email')"><img src="../images/pu-email.png" alt="email"></button></td>
-                                            <td><button style="padding:0;" onclick="smButtonHandler('facebook')"><img src="../images/pu-facebook.png" alt="facebook"></button></td>
-                                            <td><button style="padding:0;" onclick="smButtonHandler('pintrest')"><img src="../images/pu-pintrest.png" alt="pintrest"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('email')"><img
+                                                        src="../images/pu-email.png" alt="email"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('facebook')"><img
+                                                        src="../images/pu-facebook.png" alt="facebook"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('pinterest')"><img
+                                                        src="../images/pu-pinterest.png" alt="pinterest"></button></td>
                                         </tr>
                                         <tr>
-                                            <td><button style="padding:0;" onclick="smButtonHandler('reddit')"><img src="../images/pu-reddit.png" alt="reddit"></button></td>
-                                            <td><button style="padding:0;" onclick="smButtonHandler('tumblr')"><img src="../images/pu-tumblr.png" alt="tumblr"></button></td>
-                                            <td><button style="padding:0;" onclick="smButtonHandler('twitter')"><img src="../images/pu-twitter.png" alt="twitter"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('reddit')"><img
+                                                        src="../images/pu-reddit.png" alt="reddit"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('tumblr')"><img
+                                                        src="../images/pu-tumblr.png" alt="tumblr"></button></td>
+                                            <td><button style="padding:0;" onclick="smButtonHandler('twitter')"><img
+                                                        src="../images/pu-twitter.png" alt="twitter"></button></td>
                                         </tr>
                                     </table>
                                 </span>
@@ -92,19 +108,27 @@
             <tr>
                 <td align="center" width="400">
                     <div class="flexcontainer">
-                        <button class="rbutton" onclick="rbuttonClick('iTunes')"><img src="../images/iTunes.png" class="mr"> iTunes</button>
-                        <button class="rbutton" onclick="rbuttonClick('Spotify')"><img src="../images/Spotify.png" class="mr"> Spotify</button>
-                        <button class="rbutton" onclick="rbuttonClick('AppleMusic')"><img src="../images/AppleMusic.png" class="mr"> Apple Music</button>
-                        <button class="rbutton" onclick="rbuttonClick('AmazonMusic')"><img src="../images/AmazonMusic.png" class="mr"> Amazon</button>
-                        <button class="rbutton" onclick="rbuttonClick('Pandora')"><img src="../images/Pandora.png" class="mr"> Pandora</button>
-                        <button class="rbutton" onclick="rbuttonClick('YouTube')"><img src="../images/YouTube.png" class="mr"> YouTube</button>
-                        <button class="rbutton" onclick="rbuttonClick('Deezer')"><img src="../images/Deezer.png" class="mr"> Deezer</button>
+                        <button class="rbutton" onclick="rbuttonClick('iTunes')"><img src="../images/iTunes.png"
+                                class="mr"> iTunes</button>
+                        <button class="rbutton" onclick="rbuttonClick('Spotify')"><img src="../images/Spotify.png"
+                                class="mr"> Spotify</button>
+                        <button class="rbutton" onclick="rbuttonClick('AppleMusic')"><img src="../images/AppleMusic.png"
+                                class="mr"> Apple Music</button>
+                        <button class="rbutton" onclick="rbuttonClick('AmazonMusic')"><img
+                                src="../images/AmazonMusic.png" class="mr"> Amazon</button>
+                        <button class="rbutton" onclick="rbuttonClick('Pandora')"><img src="../images/Pandora.png"
+                                class="mr"> Pandora</button>
+                        <button class="rbutton" onclick="rbuttonClick('YouTube')"><img src="../images/YouTube.png"
+                                class="mr"> YouTube</button>
+                        <button class="rbutton" onclick="rbuttonClick('Deezer')"><img src="../images/Deezer.png"
+                                class="mr"> Deezer</button>
                     </div>
                     <br>
                     <hr>
                     <br>
                     <div class="flexcontainer">
-                        <button class="button" onclick="rbuttonClick('BuyFromArtist')"><img src="../images/BuyFromArtist.png" alt="" class="mr"> Buy From
+                        <button class="button" onclick="rbuttonClick('BuyFromArtist')"><img
+                                src="../images/BuyFromArtist.png" alt="" class="mr"> Buy From
                             Artist</button>
                     </div>
                     <br>
@@ -119,4 +143,5 @@
                 </td>
             </tr>
         </table>
+    </div>
 </body>

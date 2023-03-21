@@ -1,8 +1,34 @@
+//
+// VALIDATORS
+// Facebook:
+// For testing, use the Facebook Sharing Debugger tool to test how your website will
+// appear when shared on Facebook. Here are the steps you can follow:
+// 1. Go to the Facebook Sharing Debugger tool at https://developers.facebook.com/tools/debug/
+// 2. Enter the URL of the page you want to test in the input field and click "Debug".
+// 3. Facebook will fetch the data from your page and display it in a preview. You can
+//    verify that the image and text are displayed correctly.
+// 4. Click "Scrape Again" to refresh the preview if you have made changes to the metadata on
+//    your website.
+// 5. Once you are satisfied with the preview, you can click the "Share" button to share the
+//    post to your Facebook profile or page. However, make sure to set the privacy settings
+//    to "Only Me" so that the post is not visible to anyone else.
+// 6. By using the Sharing Debugger tool, you can ensure that your Facebook post will appear
+//    as expected before actually sharing it with others.
+//
+// Pinterest:
+// Pinterest provides a tool called the "Rich Pins Validator" which allows you to
+// validate the markup for your pins. The tool also provides guidance on how to improve
+// the content of your pins. You can access the Rich Pins Validator by logging into your
+// Pinterest account, clicking on the three dots in the top-right corner, and selecting
+// "Create Pin". On the Create Pin page, you'll see a "Validate" button that will take
+// you to the Rich Pins Validator.
+//---------------------------------------------------------------------------------------
 var smApp = {
     audioUrl: 'Gotta Be Tonight - Promo1 - 44_1.mp3',
-    thisURL: `http://stevemansour.com/lt/0001/play.html`,
-    thisImg: 'http://stevemansour.com/lt/0001/gbt-640.png',
-    thisTitle: "Check out GRAY's new single!",
+    thisURL: `https://stevemansour.com/lt/gotta-be-tonight`,
+    thisImg: 'https://stevemansour.com/lt/gotta-be-tonight/gotta-be-tonight.png',
+    thisImgFB: 'https://stevemansour.com/lt/gotta-be-tonight/gotta-be-tonight-FB.png',
+    thisTitle: "Check out the new GRAY single!",
     thisKeywords: "GRAY Music Factory, new single, music",
     thisDescription: "Listen to GRAY Music Factory's latest single now!",
     audioPlayer: null,
@@ -111,7 +137,6 @@ function capitalizeWords(words) {
     return capitalizedWords;
 }
 
-
 function getKeywords(platform) {
     var keywords = smApp.thisKeywords.split(/,+/).map((word) => word.trim());
     keywords = capitalizeWords(keywords);
@@ -129,64 +154,6 @@ function getKeywords(platform) {
     }
 }
 
-function smButtonHandler(p) {
-    var s1;
-    var s2;
-    var s3;
-    switch (p) {
-        case "email":
-            s1 = encodeURIComponent(`Have you heard GRAY's new single -- Gotta Be Tonight`);
-            s2 = encodeURIComponent(`Give it a listen, or watch the video.  `);
-            s3 = `mailto:?subject=` + s1 + `&body=` + s2 + smApp.thisURL
-            break;
-        case "facebook":
-            s1 = getKeywords('facebook');
-            s3 = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(smApp.thisURL)}&title=${encodeURIComponent(smApp.thisTitle)}&description=${encodeURIComponent(smApp.thisDescription)}&quote=${encodeURIComponent(smApp.thisDescription)}&hashtag=${encodeURIComponent(s1)}`;
-            break;
-        case "pintrest":
-            s2 = getKeywords('pinterest');
-            s3 = `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(smApp.thisURL)}&media=${encodeURIComponent(smApp.thisImgURL)}&description=${encodeURIComponent(smApp.thisDescription)}&hashtags=${encodeURIComponent(s2)}`;
-            break;
-        case "reddit":
-            // full URL for reddit
-            // https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3Dhttps%253A%252F%252Fkindlethefire.hearnow.com%252Fcloser%26title%3DCloser%2520by%2520Kindle%2520the%2520Fire
-
-            //    https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3D"  
-            s1 = "https://www.reddit.com/submit?url=" +
-                //  https%253A%252F%252Fkindlethefire.hearnow.com%252Fcloser%26   
-                encodeURIComponent(smApp.thisURL) +
-                // title%3DCloser%2520by%2520Kindle%2520the%2520Fire            
-                '%26title%3D' + encodeURIComponent("Gotta Be Tonight by GRAY");
-            //    https://www.reddit.com/login/?dest=
-            s3 = "https://www.reddit.com/login/?dest=" + s1;
-            break;
-        case "tumblr":
-            s2 = getKeywords('tumblr');
-            s3 = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${encodeURIComponent(smApp.thisURL)}&posttype=link&title=${encodeURIComponent(smApp.thisTitle)}&caption=${encodeURIComponent(smApp.thisDescription)}&tags=${encodeURIComponent(s2)}`;
-            break;
-        case "twitter":
-            s2 = getKeywords('twitter');
-            s3 = `https://twitter.com/intent/tweet?text=${encodeURIComponent(smApp.thisTitle)}&url=${encodeURIComponent(smApp.thisURL)}&hashtags=${encodeURIComponent(s2)}`;
-            break;
-        default:
-            console.log("unrecognized social media platform = " + p);
-            return;
-    }
-    window.open(s3, '_blank');
-}
-
-function capitalizeWords(words) {
-    var capitalizedWords = [];
-    for (let i = 0; i < words.length; i++) {
-        var wordArray = words[i].split(" ");
-        let capitalizedWord = "";
-        for (let j = 0; j < wordArray.length; j++) {
-            capitalizedWord += wordArray[j].charAt(0).toUpperCase() + wordArray[j].slice(1);
-        }
-        capitalizedWords.push(capitalizedWord);
-    }
-    return capitalizedWords;
-}
 // getKeywords - convert our generic keywords into something reasonable for the supplied
 //               platform that takes into account that platforms conventions and restrictions.
 //-----------------------------------------------------------------------------------------------
@@ -205,6 +172,50 @@ function getKeywords(platform) {
         default:
             return '';
     }
+}
+
+function smButtonHandler(p) {
+    var s1;
+    var s2;
+    var url;
+    var keywords = getKeywords(p);
+    var encKywd = encodeURIComponent(keywords);
+    var encURL = encodeURIComponent(smApp.thisURL);
+    var encImg = encodeURIComponent(smApp.thisImg);
+    var encDescr = encodeURIComponent(smApp.thisDescription);
+    var encTitle = encodeURIComponent(smApp.thisTitle);
+
+    switch (p) {
+        case "email":
+            url = `mailto:?subject=` + encTitle + `&body=` + encDescr + "%20%20" + encURL;
+            break;
+        case "facebook":
+            url = `https://www.facebook.com/sharer/sharer.php?u=${encURL}`;
+            break;
+        case "pinterest":
+            s2 = getKeywords('pinterest');
+            url = `https://pinterest.com/pin/create/button/?url=${encURL}&media=${encImg}&description=${encDescr}&hashtags=${encKywd}`;
+            break;
+        case "reddit":
+            // // https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3Dhttps%253A%252F%252Fkindlethefire.hearnow.com%252Fcloser%26title%3DCloser%2520by%2520Kindle%2520the%2520Fire
+            url = "https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3D" + encURL + '%26title%3D' + encTitle;
+            break;
+        case "tumblr":
+            // for reference to the url format:  https://www.tumblr.com/docs/en/share_button
+            encTitle = encodeURIComponent('<a href="' + smApp.thisURL + '">' + smApp.thisTitle + "</a><br><br>");
+            url = "https://www.tumblr.com/widgets/share/tool?posttype=photo&content=" + encImg + "&canonicalUrl=" + encURL + "&caption=" + encTitle + "&tags=" + encKywd;
+            break;
+        case "twitter":
+            const image = document.getElementById('songArt').getAttribute('data-image');
+            url = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encURL}&hashtags=${encKywd}&media=${image}`;
+            break;
+        default:
+            console.log("unrecognized social media platform = " + p);
+            return;
+    }
+    url += '&utm_source=social'
+    console.log(url);
+    window.open(url, '_blank');
 }
 
 function rbuttonClick(rbtn) {
