@@ -43,7 +43,7 @@ var smApp = {
     progressBar: null,
     btnImg: null,
     popup: null,
-    darkMode: true,
+    darkMode: false,
 };
 
 linkTree = {
