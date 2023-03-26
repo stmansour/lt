@@ -25,9 +25,9 @@
 //---------------------------------------------------------------------------------------
 var smApp = {
     audioUrl: 'Gotta Be Tonight - Promo1 - 44_1.mp3',
-    thisURL: `https://stevemansour.com/lt/gotta-be-tonight`,
-    thisImg: 'https://stevemansour.com/lt/gotta-be-tonight/gotta-be-tonight.png',
-    thisImgFB: 'https://stevemansour.com/lt/gotta-be-tonight/gotta-be-tonight-FB.png',
+    thisURL: `https://stevemansour.com/lt/cute-little-lesbians`,
+    thisImg: 'https://stevemansour.com/lt/cute-little-lesbians/cute-little-lesbians.png',
+    thisImgFB: 'https://stevemansour.com/lt/cute-little-lesbians/cute-little-lesbians-FB.png',
     thisLyrics: 'http://stevemansour.com/songwriter/lyrics/TalkToHer.html',
     thisTitle: "Check out the new GRAY single!",
     thisKeywords: "GRAY Music Factory, new single, music",
@@ -43,7 +43,7 @@ var smApp = {
     progressBar: null,
     btnImg: null,
     popup: null,
-    darkMode: true,
+    darkMode: false,
 };
 
 linkTree = {
@@ -57,12 +57,12 @@ linkTree = {
 };
 
 function toggleDarkMode() {
-    const imageElements = document.querySelectorAll('img[src^="../images/light/"]');
+    const imageElements = document.querySelectorAll('img[src^="../images/dark/"]');
 
     imageElements.forEach(function (element) {
         const currentSource = element.getAttribute('src');
         console.log("img.src = " + element.src);
-        const newSource = currentSource.replace('../images/light/', '../images/dark/');
+        const newSource = currentSource.replace('../images/dark/', '../images/dark/');
         element.setAttribute('src', newSource);
     });
 }

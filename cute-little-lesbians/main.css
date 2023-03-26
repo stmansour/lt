@@ -231,6 +231,7 @@ button:hover img {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    flex-basis: 45%;
 }
 
 .fg-img-container {
