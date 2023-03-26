@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Marvel:ital@0;1&family=Yanone+Kaffeesatz:wght@300&display=swap');
 
 :root {
-    /* --primary-color: #222222;
-    --secondary-color: #EEEEEE; */
-    --primary-color: #EEEEEE;
-    --secondary-color: #222222;
+    --primary-color: #222222;
+    --secondary-color: #EEEEEE;
+    /* --primary-color: #EEEEEE;
+    --secondary-color: #222222; */
 }
 
 /* Light Theme */
@@ -44,6 +44,10 @@ th {
 
 .songby {
     font-size: 1.3em;
+}
+
+#songArt {
+    border: 7px solid rgba(255, 255, 255, 0.6);
 }
 
 /*

@@ -46,6 +46,10 @@ th {
     font-size: 1.3em;
 }
 
+#songArt {
+    border: 7px solid rgba(255, 255, 255, 0.6);
+}
+
 /*
 **  THE POPUP
 */
@@ -237,6 +241,7 @@ button:hover img {
     position: relative;
     height: 450px;
     overflow: hidden;
+    z-index: -2;
 }
 
 .foreground-img {
@@ -252,7 +257,7 @@ button:hover img {
     height: 100%;
     background-size: cover;
     background-position: center center;
-    z-index: -3;
+    z-index: -4;
     filter: blur(8px);
 }
 
