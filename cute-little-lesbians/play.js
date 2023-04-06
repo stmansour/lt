@@ -24,11 +24,11 @@
 // you to the Rich Pins Validator.
 //---------------------------------------------------------------------------------------
 var smApp = {
-    audioUrl: 'Gotta Be Tonight - Promo1 - 44_1.mp3',
+    audioUrl: 'CuteLittleLesbians-Promo1-44_1.mp3',
     thisURL: `https://stevemansour.com/lt/cute-little-lesbians`,
     thisImg: 'https://stevemansour.com/lt/cute-little-lesbians/cute-little-lesbians.png',
     thisImgFB: 'https://stevemansour.com/lt/cute-little-lesbians/cute-little-lesbians-FB.png',
-    thisLyrics: 'http://stevemansour.com/songwriter/lyrics/TalkToHer.html',
+    thisLyrics: 'https://stevemansour.com/songwriter/lyrics/CuteLittleLesbians.html',
     thisTitle: "Check out the new GRAY single!",
     thisKeywords: "GRAY Music Factory, new single, music",
     thisDescription: "Listen to GRAY Music Factory's latest single now!",
