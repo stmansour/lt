@@ -50,6 +50,10 @@ th {
     border: 7px solid rgba(255, 255, 255, 0.6);
 }
 
+blur-btn {
+    /* no style info, just a placehoder for selection by class */
+}
+
 /*
 **  THE POPUP
 */

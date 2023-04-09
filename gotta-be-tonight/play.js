@@ -46,14 +46,16 @@ var smApp = {
     darkMode: false,
 };
 
+//  To find iTunes/Apple music links, see: https://tools.applemediaservices.com/
+//
 linkTree = {
-    'iTunes': "https://itunes.apple.com/",
-    'Spotify': "https://spotify.com/",
-    'AppleMusic': "https://music.apple.com/",
-    'AmazonMusic': "https://music.amazon.com/",
-    'Pandora': "https://pandora.com/",
-    'YouTube': "https://youtube.com/@graymusicfactory",
-    'Deezer': "https://deezer.com/",
+    'iTunes': "https://geo.music.apple.com/us/album/gotta-be-tonight/1676877205?i=1676877206&itsct=music_box_link&itscg=30200&ls=1&app=music",
+    'Spotify': "https://open.spotify.com/album/0uC3yMENeES9FVByEJ0Cxr?si=CygS1XpHToSAfk9UE_N0YQ",
+    'AppleMusic': "https://geo.music.apple.com/us/album/gotta-be-tonight/1676877205?i=1676877206&itsct=music_box_link&itscg=30200&ls=1&app=music",
+    'AmazonMusic': "https://amazon.com/music/player/albums/B0BY821KSQ?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_ZHfaoNyTX05dtmUu8CUWnUmfE",
+    'Pandora': "https://pandora.app.link/cqbpXptIQyb",
+    'YouTube': "https://youtu.be/rFZEELnioRw",
+    'Deezer': "https://deezer.page.link/H4a9TUBesRYf4GgS7",
 };
 
 function toggleDarkMode() {
@@ -68,6 +70,17 @@ function toggleDarkMode() {
 }
 
 window.addEventListener('load', () => {
+    window.addEventListener('DOMContentLoaded', function () {
+        let buttons = document.querySelectorAll('.button, .rbutton');
+
+        buttons.forEach(function (button) {
+            button.addEventListener('mouseleave', function () {
+                button.style.backgroundColor = '';
+                button.style.color = '';
+            });
+        });
+    });
+
     if (smApp.darkMode) {
         toggleDarkMode();
     }
@@ -211,29 +224,36 @@ function smButtonHandler(p) {
             break;
         case "facebook":
             url = `https://www.facebook.com/sharer/sharer.php?u=${encURL}`;
+            url += '&utm_source=social'
+            break;
+        case "follow":
+            url = `https://open.spotify.com/artist/3s3DaEbal34U64C5aIDtVZ`;
             break;
         case "pinterest":
             s2 = getKeywords('pinterest');
             url = `https://pinterest.com/pin/create/button/?url=${encURL}&media=${encImg}&description=${encDescr}&hashtags=${encKywd}`;
+            url += '&utm_source=social'
             break;
         case "reddit":
             // // https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3Dhttps%253A%252F%252Fkindlethefire.hearnow.com%252Fcloser%26title%3DCloser%2520by%2520Kindle%2520the%2520Fire
             url = "https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3D" + encURL + '%26title%3D' + encTitle;
+            url += '&utm_source=social'
             break;
         case "tumblr":
             // for reference to the url format:  https://www.tumblr.com/docs/en/share_button
             encTitle = encodeURIComponent('<a href="' + smApp.thisURL + '">' + smApp.thisTitle + "</a><br><br>");
             url = "https://www.tumblr.com/widgets/share/tool?posttype=photo&content=" + encImg + "&canonicalUrl=" + encURL + "&caption=" + encTitle + "&tags=" + encKywd;
+            url += '&utm_source=social'
             break;
         case "twitter":
             const image = document.getElementById('songArt').getAttribute('data-image');
             url = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encURL}&hashtags=${encKywd}&media=${image}`;
+            url += '&utm_source=social'
             break;
         default:
             console.log("unrecognized social media platform = " + p);
             return;
     }
-    url += '&utm_source=social'
     console.log(url);
     window.open(url, '_blank');
 }

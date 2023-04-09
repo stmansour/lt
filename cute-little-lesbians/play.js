@@ -212,6 +212,9 @@ function smButtonHandler(p) {
         case "facebook":
             url = `https://www.facebook.com/sharer/sharer.php?u=${encURL}`;
             break;
+        case "follow":
+            url = `https://open.spotify.com/artist/3s3DaEbal34U64C5aIDtVZ`;
+            break;
         case "pinterest":
             s2 = getKeywords('pinterest');
             url = `https://pinterest.com/pin/create/button/?url=${encURL}&media=${encImg}&description=${encDescr}&hashtags=${encKywd}`;

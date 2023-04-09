@@ -49,10 +49,13 @@
                     <div><span id="duration">00:00</span></div>
                 </td>
                 <td>
+                    <!-- 
+                        LYRICS, FOLLOW, SHARE
+                    -->
                     <div id="fbutton-container">
                         <div id="lyrics-btn" class="fbutton" onclick="showLyrics(event)""><img src="../images/lyrics.png"
                             alt="">&nbsp;&nbsp;LYRICS&nbsp;&nbsp;</div>
-                        <div id="follow-btn" class="fbutton" ><img src="../images/light/follow.png"
+                        <div id="follow-btn" class="fbutton" onclick="smButtonHandler('follow')"><img src="../images/light/follow.png"
                                 alt="">&nbsp;&nbsp;FOLLOW</div>
                         <div id="share-btn" class="fbutton" onclick="showPopup(event)" style="cursor: pointer;">
                             <div class="popup"><img src="../images/light/share.png" alt="">&nbsp;&nbsp;SHARE&nbsp;&nbsp;
