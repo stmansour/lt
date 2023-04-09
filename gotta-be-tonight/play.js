@@ -70,16 +70,20 @@ function toggleDarkMode() {
 }
 
 window.addEventListener('load', () => {
-    window.addEventListener('DOMContentLoaded', function () {
-        let buttons = document.querySelectorAll('.button, .rbutton');
 
+    //=====================================================================
+    // Add an event listener for the window 'focus' event
+    window.addEventListener('focus', function () {
+        // Find all buttons with the 'blur-btn' class
+        var buttons = document.querySelectorAll('.blur-btn');
+
+        // Loop through the buttons and reset their styling
         buttons.forEach(function (button) {
-            button.addEventListener('mouseleave', function () {
-                button.style.backgroundColor = '';
-                button.style.color = '';
-            });
+            button.style.backgroundColor = '';
+            button.style.color = '';
         });
     });
+    //=====================================================================
 
     if (smApp.darkMode) {
         toggleDarkMode();
@@ -247,7 +251,7 @@ function smButtonHandler(p) {
             break;
         case "twitter":
             const image = document.getElementById('songArt').getAttribute('data-image');
-            url = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encURL}&hashtags=${encKywd}&media=${image}`;
+            url = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encURL}&hashtags=${encKywd}`;
             url += '&utm_source=social'
             break;
         default:

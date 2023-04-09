@@ -211,6 +211,7 @@ function smButtonHandler(p) {
             break;
         case "facebook":
             url = `https://www.facebook.com/sharer/sharer.php?u=${encURL}`;
+            url += '&utm_source=social'
             break;
         case "follow":
             url = `https://open.spotify.com/artist/3s3DaEbal34U64C5aIDtVZ`;
@@ -218,25 +219,28 @@ function smButtonHandler(p) {
         case "pinterest":
             s2 = getKeywords('pinterest');
             url = `https://pinterest.com/pin/create/button/?url=${encURL}&media=${encImg}&description=${encDescr}&hashtags=${encKywd}`;
+            url += '&utm_source=social'
             break;
         case "reddit":
             // // https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3Dhttps%253A%252F%252Fkindlethefire.hearnow.com%252Fcloser%26title%3DCloser%2520by%2520Kindle%2520the%2520Fire
             url = "https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2Fsubmit%3Furl%3D" + encURL + '%26title%3D' + encTitle;
+            url += '&utm_source=social'
             break;
         case "tumblr":
             // for reference to the url format:  https://www.tumblr.com/docs/en/share_button
             encTitle = encodeURIComponent('<a href="' + smApp.thisURL + '">' + smApp.thisTitle + "</a><br><br>");
             url = "https://www.tumblr.com/widgets/share/tool?posttype=photo&content=" + encImg + "&canonicalUrl=" + encURL + "&caption=" + encTitle + "&tags=" + encKywd;
+            url += '&utm_source=social'
             break;
         case "twitter":
             const image = document.getElementById('songArt').getAttribute('data-image');
-            url = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encURL}&hashtags=${encKywd}&media=${image}`;
+            url = `https://twitter.com/intent/tweet?text=${encTitle}&url=${encURL}&hashtags=${encKywd}`;
+            url += '&utm_source=social'
             break;
         default:
             console.log("unrecognized social media platform = " + p);
             return;
     }
-    url += '&utm_source=social'
     console.log(url);
     window.open(url, '_blank');
 }

@@ -49,16 +49,16 @@
                     <div><span id="duration">00:00</span></div>
                 </td>
                 <td>
-                    <!-- 
-                        LYRICS, FOLLOW, SHARE
-                    -->
                     <div id="fbutton-container">
-                        <div id="lyrics-btn" class="fbutton" onclick="showLyrics(event)""><img src="../images/lyrics.png"
-                            alt="">&nbsp;&nbsp;LYRICS&nbsp;&nbsp;</div>
+                        <!-- 
+                            LYRICS, FOLLOW, SHARE
+                        -->
+                        <div id="lyrics-btn" class="fbutton" onclick="showLyrics(event)"><img src="../images/lyrics.png"
+                            alt="lyrics">&nbsp;&nbsp;LYRICS&nbsp;&nbsp;</div>
                         <div id="follow-btn" class="fbutton" onclick="smButtonHandler('follow')"><img src="../images/light/follow.png"
-                                alt="">&nbsp;&nbsp;FOLLOW</div>
+                            alt="follow">&nbsp;&nbsp;FOLLOW</div>
                         <div id="share-btn" class="fbutton" onclick="showPopup(event)" style="cursor: pointer;">
-                            <div class="popup"><img src="../images/light/share.png" alt="">&nbsp;&nbsp;SHARE&nbsp;&nbsp;
+                            <div class="popup"><img src="../images/light/share.png" alt="share">&nbsp;&nbsp;SHARE&nbsp;&nbsp;
                                 <span class="popuptext" id="smPopup">
                                     <table border="0" cellspacing="0" cellpadding="0"
                                         style="border-collapse: collapse; border-spacing: 0; padding: 0;">
@@ -92,7 +92,7 @@
     <!------------------------------------------------------
       --                    LINK TREE
       ------------------------------------------------------>
-    <div>
+    <div class="content-container">
         <table align="center">
             <!--  TITLE -->
             <tr>
@@ -112,20 +112,13 @@
             <tr>
                 <td align="center" width="400">
                     <div class="flexcontainer" id="streamingSites">
-                        <button class="rbutton" onclick="rbuttonClick('iTunes')"><img src="../images/light/iTunes.png"
-                                class="mr"> iTunes</button>
-                        <button class="rbutton" onclick="rbuttonClick('Spotify')"><img src="../images/light/Spotify.png"
-                                class="mr"> Spotify</button>
-                        <button class="rbutton" onclick="rbuttonClick('AppleMusic')"><img src="../images/light/AppleMusic.png"
-                                class="mr"> Apple Music</button>
-                        <button class="rbutton" onclick="rbuttonClick('AmazonMusic')"><img src="../images/light/AmazonMusic.png"
-                                class="mr"> Amazon</button>
-                        <button class="rbutton" onclick="rbuttonClick('Pandora')"><img src="../images/light/Pandora.png"
-                                class="mr"> Pandora</button>
-                        <button class="rbutton" onclick="rbuttonClick('YouTube')"><img src="../images/light/YouTube.png"
-                                class="mr"> YouTube</button>
-                        <button class="rbutton" onclick="rbuttonClick('Deezer')"><img src="../images/light/Deezer.png"
-                                class="mr"> Deezer</button>
+                        <button class="rbutton" onclick="rbuttonClick('iTunes')"><img src="../images/light/iTunes.png" class="mr"> iTunes</button>
+                        <button class="rbutton" onclick="rbuttonClick('Spotify')"><img src="../images/light/Spotify.png" class="mr"> Spotify</button>
+                        <button class="rbutton" onclick="rbuttonClick('AppleMusic')"><img src="../images/light/AppleMusic.png" class="mr"> Apple Music</button>
+                        <button class="rbutton" onclick="rbuttonClick('AmazonMusic')"><img src="../images/light/AmazonMusic.png" class="mr"> Amazon</button>
+                        <button class="rbutton" onclick="rbuttonClick('Pandora')"><img src="../images/light/Pandora.png" class="mr"> Pandora</button>
+                        <button class="rbutton" onclick="rbuttonClick('YouTube')"><img src="../images/light/YouTube.png" class="mr"> YouTube</button>
+                        <button class="rbutton" onclick="rbuttonClick('Deezer')"><img src="../images/light/Deezer.png" class="mr"> Deezer</button>
                     </div>
                     <br>
                     <hr>
