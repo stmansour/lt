@@ -63,7 +63,7 @@ function toggleDarkMode() {
 
     imageElements.forEach(function (element) {
         const currentSource = element.getAttribute('src');
-        console.log("img.src = " + element.src);
+        // console.log("img.src = " + element.src);
         const newSource = currentSource.replace('../images/light/', '../images/dark/');
         element.setAttribute('src', newSource);
     });
@@ -103,12 +103,12 @@ window.addEventListener('load', () => {
     smApp.audioPlayer.load();
 
     smApp.audioPlayer.addEventListener('durationchange', () => {
-        console.log("duration change");
+        // console.log("duration change");
         smApp.durationDisplay.innerHTML = formatDuration(smApp.audioPlayer.duration);
     });
 
     smApp.audioPlayer.addEventListener('canplay', () => {
-        console.log("CAN PLAY");
+        // console.log("CAN PLAY");
         smApp.canPlay = true;
         if (smApp.playRequested) {
             smApp.audioPlayer.play();
@@ -121,7 +121,7 @@ window.addEventListener('load', () => {
     });
 
     smApp.audioPlayer.addEventListener('ended', () => {
-        console.log("song ended");
+        // console.log("song ended");
         smApp.isPlaying = false;
         smApp.btnImg.src = "../images/play.png";
     });
@@ -258,12 +258,12 @@ function smButtonHandler(p) {
             console.log("unrecognized social media platform = " + p);
             return;
     }
-    console.log(url);
+    // console.log(url);
     window.open(url, '_blank');
 }
 
 function rbuttonClick(rbtn) {
-    console.log("rbutton: " + rbtn);
+    // console.log("rbutton: " + rbtn);
     var url = "";
     switch (rbtn) {
         case 'iTunes': url = linkTree[rbtn]; break;

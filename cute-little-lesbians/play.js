@@ -56,21 +56,21 @@ linkTree = {
     'Deezer': "https://deezer.com/",
 };
 
-function toggleDarkMode() {
-    const imageElements = document.querySelectorAll('img[src^="../images/dark/"]');
+// function toggleDarkMode() {
+//     const imageElements = document.querySelectorAll('img[src^="../images/dark/"]');
 
-    imageElements.forEach(function (element) {
-        const currentSource = element.getAttribute('src');
-        console.log("img.src = " + element.src);
-        const newSource = currentSource.replace('../images/dark/', '../images/dark/');
-        element.setAttribute('src', newSource);
-    });
-}
+//     imageElements.forEach(function (element) {
+//         const currentSource = element.getAttribute('src');
+//         console.log("img.src = " + element.src);
+//         const newSource = currentSource.replace('../images/dark/', '../images/dark/');
+//         element.setAttribute('src', newSource);
+//     });
+// }
 
 window.addEventListener('load', () => {
-    if (smApp.darkMode) {
-        toggleDarkMode();
-    }
+    // if (smApp.darkMode) {
+    //     toggleDarkMode();
+    // }
     smApp.progressBar = document.getElementById('progressBar');
     smApp.progressBar.innerHTML = `<div style="position: relative; width: 260px; height: 50px; margin: 0 auto;">
     <div style="position: absolute; top: 50%; transform: translateY(-50%); width: 3px; height: 7px; background-color: #666;"></div>
@@ -86,12 +86,12 @@ window.addEventListener('load', () => {
     smApp.audioPlayer.load();
 
     smApp.audioPlayer.addEventListener('durationchange', () => {
-        console.log("duration change");
+        // console.log("duration change");
         smApp.durationDisplay.innerHTML = formatDuration(smApp.audioPlayer.duration);
     });
 
     smApp.audioPlayer.addEventListener('canplay', () => {
-        console.log("CAN PLAY");
+        // console.log("CAN PLAY");
         smApp.canPlay = true;
         if (smApp.playRequested) {
             smApp.audioPlayer.play();
@@ -241,7 +241,7 @@ function smButtonHandler(p) {
             console.log("unrecognized social media platform = " + p);
             return;
     }
-    console.log(url);
+    // console.log(url);
     window.open(url, '_blank');
 }
 
