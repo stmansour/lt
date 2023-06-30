@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Email Signup - GRAY Music Factory</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Marvel:ital@0;1&family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+    body {
+        height: 100%;
+        background: #000000;
+        color: #dddddd;
+        font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+        font-size: 1.5em;
+    }
+
+    a:link {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+    input[type=text],
+    input[type=email] {
+        font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+        font-size: 1.0em;
+        padding: 4px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+
+    .subbuttons {
+        padding: 12px;
+        background-color: #2CAF30;
+        font-size: 1.0em;
+        font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+    }
+
+    input[type=submit] {
+        opacity: .8;
+    }
+
+    input[type=submit]:hover {
+        opacity: 1.0;
+    }
+
+    .required {
+        color: #F39C12;
+        font-size: 1em;
+    }
+
+    .titletext {
+        font-weight: 900;
+        font-size: 2em;
+    }
+
+    .mc-field-group {
+        display: grid;
+        align-items: center;
+        grid-template-columns: max-content 1fr;
+        gap: 10px;
+    }
+
+    .mc-field-group input {
+        width: 100%;
+    }
+
+    /* This will only apply if the document is smaller than 600px */
+    @media screen and (max-width: 600px) {
+        body {
+            font-size: 2em;
+        }
+
+        input[type=text],
+        input[type=email],
+        .subbuttons {
+            font-size: 1.5em;
+        }
+
+        .titletext {
+            font-size: 2.5em;
+        }
+
+        .required {
+            font-size: 1.5em;
+        }
+    }
+</style>
+
+<body>
+    <div id="mc_embed_shell">
+        <table align="center">
+            <tr>
+                <td>
+                    <p align="center" class="titletext">GRAY Email List Signup</p>
+                    <!-- <input id="subscribeName" type="text" size="25" placeholder="Enter your name" name="name" required>
+                    <input id="subscribeEmail" type="text" size="25" placeholder="Enter your email address" name="email"
+                        required>
+                    <input class="subbuttons" type="submit" value="Subscribe Me!"> -->
+                    <div id="mc_embed_signup">
+                        <form
+                            action="https://graymusicfactory.us12.list-manage.com/subscribe/post?u=5fc97d5fdc7c6a7eba037fde7&amp;id=cf5ff02283&amp;f_id=00d14ae0f0"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate" target="_self" novalidate="">
+
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address: <span class="required">*</span></label>
+                                <input type="email" name="EMAIL" class="email" id="mce-EMAIL" required="" value="">
+                            </div>
+                            <div class="mc-field-group">
+                                <label for="mce-FNAME">First Name: <span class="required">*</span></label>
+                                <input type="text" name="FNAME" class="text" id="mce-FNAME" required="" value="">
+                            </div>
+
+                            <div hidden=""><input type="hidden" name="tags" value="10506750"></div>
+                            <div id="mce-responses" class="clear foot">
+                                <div class="response" id="mce-error-response" style="display: none;"></div>
+                                <div class="response" id="mce-success-response" style="display: none;">
+                                </div>
+                            </div>
+                            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                /* real people should not fill this in and expect good things - do not
+                                remove this or risk form bot
+                                signups */
+                                <input type="text" name="b_5fc97d5fdc7c6a7eba037fde7_cf5ff02283" tabindex="-1" value="">
+                            </div>
+                            <div class="indicates-required required" align="right">
+                                <span class="asterisk required">*</span>
+                                <span style="font-size: 0.70em;">
+                                    required field... we will not sell or share your information with anyone.
+                                </span>
+                            </div>
+                            <div class="optionalParent" align="right">
+                                <div class="clear foot">
+                                    <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="subbuttons"
+                                        value="Subscribe">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td height="10"></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p>This little beagle is sad because...</p>
+                    <img align="center" src="images/sadbeagle.jpg" alt="">
+                    <p alig="center">... he wants you to subscribe to GRAY's email list<br>
+                        so you'll receive exclusive content<br>
+                        and find early out about new releases.<br>
+                        But most important, you'll make the little beagle happy.<br>
+                        Really. Try it.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <center>
+        <img src="images/Gray Music Factory - 200x200.png" alt="" align="center">
+    </center>
+
+</body>
+
+</html>
