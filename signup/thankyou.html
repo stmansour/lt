@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thank You For Signing Up! - GRAY Music Factory</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Marvel:ital@0;1&family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+        body {
+            height: 100%;
+            background: #000000;
+            color: #dddddd;
+            font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+            font-size: 1.5em;
+        }
+
+        img,
+        table,
+        div {
+            max-width: 100%;
+        }
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        input[type=text],
+        input[type=email] {
+            font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+            font-size: 0.8em;
+            padding: 4px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .subbuttons {
+            padding: 12px;
+            background-color: #2CAF30;
+            color: #dddddd;
+            font-size: 1.0em;
+            font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
+        }
+
+        input[type=submit] {
+            opacity: .8;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        input[type=submit]:hover {
+            opacity: 1.0;
+        }
+
+        .required {
+            color: #F39C12;
+            font-size: 1em;
+        }
+
+        .titletext {
+            font-weight: 900;
+            font-size: 2em;
+        }
+
+        .mc-field-group {
+            display: grid;
+            align-items: center;
+            grid-template-columns: max-content 1fr;
+            gap: 10px;
+        }
+
+        .mc-field-group input {
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* This will only apply if the document is smaller than 600px */
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 1.3em;
+            }
+
+            input[type=text],
+            input[type=email],
+            .subbuttons {
+                font-size: 1.3em;
+            }
+
+            .titletext {
+                font-size: 1.5em;
+            }
+
+            .required {
+                font-size: 1.3em;
+            }
+
+            input[type=submit] {
+                opacity: 1.0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Subscription Confirmed</h1>
+        <p><img src="images/happybeagle.jpg" alt="Happy Beagle" align="center"></p>
+        <p class="undertitle">
+            Welcome to the list! You are subscribed.
+            <br>
+            And look how happy Bagel is now! Good job!
+        </p>
+        <p>
+            <button class="subbuttons" onclick="window.location.href='http://www.graymusicfactory.com';">
+                Go to GRAY's website
+            </button>
+            or
+            <button class="subbuttons" onclick="window.location.href='http://graymusicfactory.us12.list-manage.com/profile/?u=5fc97d5fdc7c6a7eba037fde7&id=cf5ff02283&e=*|UNIQID|*';">
+                manage your preferences
+            </button>
+        </p>
+        <img src="images/Gray Music Factory - 200x200.png" alt="" align="center">
+    </div>
+</body>
+
+</html>
