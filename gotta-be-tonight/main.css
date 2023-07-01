@@ -187,6 +187,11 @@ button:hover img {
     filter: invert(1);
 }
 
+#btn_Spotify:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 .fbutton {
     border: 1px solid white;
     background-color: rgba(0, 0, 0, 0.25);
