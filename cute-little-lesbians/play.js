@@ -48,11 +48,11 @@ var smApp = {
 
 linkTree = {
     'iTunes': "https://itunes.apple.com/",
-    'Spotify': "https://spotify.com/",
+    'Spotify': "https://open.spotify.com/artist/3s3DaEbal34U64C5aIDtVZ",
     'AppleMusic': "https://music.apple.com/",
     'AmazonMusic': "https://music.amazon.com/",
     'Pandora': "https://pandora.com/",
-    'YouTube': "https://youtube.com/@graymusicfactory",
+    'YouTube': "https://youtu.be/Jbrn4zfpzrY",
     'Deezer': "https://deezer.com/",
 };
 
