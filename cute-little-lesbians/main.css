@@ -23,7 +23,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     font-family: 'Marvel', 'Yanone Kaffeesatz', sans-serif;
     font-size: 1.3em;
     color: var(--primary-color);
