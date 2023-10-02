@@ -50,7 +50,6 @@ var smApp = {
 //
 linkTree = {
     'iTunes': "https://geo.music.apple.com/us/album/gotta-be-tonight/1676877205?i=1676877206&itsct=music_box_link&itscg=30200&ls=1&app=music",
-    // 'Spotify': "https://open.spotify.com/album/0uC3yMENeES9FVByEJ0Cxr?si=CygS1XpHToSAfk9UE_N0YQ",
     'Spotify': "https://open.spotify.com/album/0uC3yMENeES9FVByEJ0Cxr",
     'AppleMusic': "https://geo.music.apple.com/us/album/gotta-be-tonight/1676877205?i=1676877206&itsct=music_box_link&itscg=30200&ls=1&app=music",
     'AmazonMusic': "https://amazon.com/music/player/albums/B0BY821KSQ?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_ZHfaoNyTX05dtmUu8CUWnUmfE",
